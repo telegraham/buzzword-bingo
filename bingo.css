@@ -1,0 +1,94 @@
+html,
+body {
+  min-width: 888px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #edff00;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bingo {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 2px;
+  box-shadow: black 5px 5px;
+  font-family: Georgia, "Times New Roman", serif;
+  background: white;
+}
+
+#bingo td,
+#bingo th {
+  width: 150px;
+  height: 125px;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#bingo td {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#bingo th {
+  font-size: 50px;
+}
+
+#bingo td span {
+  font-size: inherit;
+}
+
+.ink-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: block;
+  background: #df1e1e;
+  border: 0;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  opacity: 0.78;
+  pointer-events: none;
+  transform: translate(
+      calc(-50% + var(--stamp-x)),
+      calc(-50% + var(--stamp-y))
+    ) rotate(-4deg);
+  animation: stamp-in 130ms ease-out;
+}
+
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--stamp-x)),
+        calc(-50% + var(--stamp-y))
+      ) rotate(-4deg) scale(0.8);
+  }
+
+  to {
+    opacity: 0.78;
+    transform: translate(
+        calc(-50% + var(--stamp-x)),
+        calc(-50% + var(--stamp-y))
+      ) rotate(-4deg) scale(1);
+  }
+}
+
+@media print {
+  main {
+    min-height: auto;
+    padding: 0;
+  }
+}
