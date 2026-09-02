@@ -85,6 +85,24 @@ function saveSelectionState() {
   }
 }
 
+function updateFavicon() {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  const favicon = document.querySelector("#favicon");
+
+  canvas.width = 16;
+  canvas.height = 16;
+  context.fillStyle = "black";
+  context.fillRect(0, 0, 16, 16);
+
+  for (let index = 0; index < CELL_COUNT; index += 1) {
+    context.fillStyle = selectionState.has(String(index)) ? "#da1edf" : "white";
+    context.fillRect(1 + (index % 5) * 3, 1 + Math.floor(index / 5) * 3, 2, 2);
+  }
+
+  favicon.href = canvas.toDataURL("image/png");
+}
+
 function addStamp(cell, offsetX, offsetY) {
   const bounds = cell.getBoundingClientRect();
   const stamp = document.createElement("span");
@@ -108,6 +126,7 @@ function toggleStamp(event) {
     cell.classList.remove("selected");
     selectionState.delete(cell.dataset.cellIndex);
     saveSelectionState();
+    updateFavicon();
     return;
   }
 
@@ -118,6 +137,7 @@ function toggleStamp(event) {
   addStamp(cell, offsetX, offsetY);
   selectionState.set(cell.dataset.cellIndex, { x: offsetX, y: offsetY });
   saveSelectionState();
+  updateFavicon();
 }
 
 function restoreSelections() {
@@ -145,4 +165,5 @@ try {
 
 selectionState = loadSelectionState();
 restoreSelections();
+updateFavicon();
 enableSelection();
