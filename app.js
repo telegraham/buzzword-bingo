@@ -122,7 +122,8 @@ function toggleStamp(event) {
   const existingStamp = cell.querySelector(".ink-stamp");
 
   if (existingStamp) {
-    existingStamp.remove();
+    existingStamp.classList.add("ink-stamp--removing");
+    existingStamp.addEventListener("animationend", () => existingStamp.remove(), { once: true });
     cell.classList.remove("selected");
     selectionState.delete(cell.dataset.cellIndex);
     saveSelectionState();

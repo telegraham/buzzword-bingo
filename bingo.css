@@ -86,6 +86,28 @@ main {
   }
 }
 
+.ink-stamp--removing {
+  animation: stamp-out 160ms ease-in forwards;
+}
+
+@keyframes stamp-out {
+  from {
+    opacity: 0.78;
+    transform: translate(
+        calc(-50% + var(--stamp-x)),
+        calc(-50% + var(--stamp-y))
+      ) rotate(-4deg) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--stamp-x)),
+        calc(-50% + var(--stamp-y))
+      ) rotate(-4deg) scale(0.92);
+  }
+}
+
 @media print {
   main {
     min-height: auto;
