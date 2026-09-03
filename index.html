@@ -10,20 +10,14 @@
 
   <body>
     <main>
-      <table id="bingo" aria-label="Kickoff bingo card">
-        <thead>
-          <tr>
-            <th colspan="5">Buzzword BINGO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+      <div id="board-container">
+        <table id="bingo" aria-label="Kickoff bingo card">
+          <thead>
+            <tr>
+              <th colspan="5">Buzzword BINGO</th>
+            </tr>
+          </thead>
+          <tbody>
           <tr>
             <td></td>
             <td></td>
@@ -52,8 +46,23 @@
             <td></td>
             <td></td>
           </tr>
-        </tbody>
-      </table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+        <button id="info-button" type="button" aria-controls="phrase-drawer" aria-expanded="false" aria-label="Show enabled phrases">i</button>
+      </div>
+      <aside id="phrase-drawer" aria-label="Enabled phrases">
+        <div class="phrase-drawer__header">
+          <h2>All <span id="enabled-phrase-count"></span> phrases</h2>
+        </div>
+        <ol id="enabled-phrase-list"></ol>
+      </aside>
     </main>
     <script type="module" src="app.js"></script>
   </body>

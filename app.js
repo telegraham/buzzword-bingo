@@ -51,6 +51,55 @@ function renderBoard(board) {
   });
 }
 
+function renderEnabledPhrases(board) {
+  const list = document.querySelector("#enabled-phrase-list");
+  const count = document.querySelector("#enabled-phrase-count");
+  const currentPhraseIds = new Set(board.filter((id) => id !== FREE_SPACE_ID));
+  const enabledPhrases = Object.entries(phrasesById)
+    .filter(([, phrase]) => phrase.deactivated !== true)
+    .map(([id, phrase]) => ({ id, text: phrase.text }))
+    .sort((a, b) => a.text.localeCompare(b.text));
+
+  count.textContent = `${enabledPhrases.length}`;
+  list.replaceChildren(...enabledPhrases.map(({ id, text }) => {
+    const item = document.createElement("li");
+    item.textContent = text;
+
+    if (currentPhraseIds.has(id)) {
+      item.classList.add("phrase-drawer__item--current");
+    }
+
+    return item;
+  }));
+}
+
+function enablePhraseDrawer() {
+  const button = document.querySelector("#info-button");
+  const drawer = document.querySelector("#phrase-drawer");
+  const board = document.querySelector("#bingo");
+
+  function matchDrawerHeight() {
+    drawer.style.height = `${board.offsetHeight}px`;
+  }
+
+  function toggleDrawer(forceOpen) {
+    const isOpen = forceOpen ?? !drawer.classList.contains("is-open");
+    drawer.classList.toggle("is-open", isOpen);
+    button.classList.toggle("is-open", isOpen);
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Close enabled phrases" : "Show enabled phrases");
+    button.textContent = isOpen ? "x" : "i";
+  }
+
+  button.addEventListener("click", () => toggleDrawer());
+  window.addEventListener("resize", matchDrawerHeight);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") toggleDrawer(false);
+  });
+
+  matchDrawerHeight();
+}
+
 function clampOffset(value) {
   return Math.max(-20, Math.min(20, value));
 }
@@ -157,14 +206,20 @@ function enableSelection() {
   });
 }
 
+let board;
+
 try {
-  renderBoard(getBoardFromUrl());
+  board = getBoardFromUrl();
+  renderBoard(board);
 } catch (error) {
   console.warn(error.message);
-  renderBoard(createDefaultBoard());
+  board = createDefaultBoard();
+  renderBoard(board);
 }
 
+renderEnabledPhrases(board);
 selectionState = loadSelectionState();
 restoreSelections();
 updateFavicon();
 enableSelection();
+enablePhraseDrawer();
