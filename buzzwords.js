@@ -79,7 +79,7 @@ export const phrasesById = Object.freeze({
   "S0": { text: "Enterprise-wide impact", deactivated: true }, // two existing terms combined
   "qa": { text: "Evangelize" },
   "iH": { text: "Execution", deactivated: true }, // just a term
-  "qh": { text: "Executive summary" },
+  "qh": { text: "Executive summary", deactivated: true }, // just a term
   "2x": { text: "Experiment", deactivated: true }, // just a term
   "rv": { text: "Experiment setup", deactivated: true }, // just a term
   "9C": { text: "Feasibility" },
@@ -162,7 +162,7 @@ export const phrasesById = Object.freeze({
   "Mc": { text: "Move the goalposts" },
   "ir": { text: "Move the needle" },
   "FV": { text: "Moving forward" },
-  "4h": { text: "MVP" },
+  "4h": { text: "MVP", deactivated: true }, // just a term
   "cM": { text: "Net new" },
   "7H": { text: "Net-new ask", deactivated: true }, // two existing terms combined
   "4V": { text: "Net-new capability", deactivated: true }, // two existing terms combined
@@ -177,7 +177,7 @@ export const phrasesById = Object.freeze({
   "Vt": { text: "Operationalize" },
   "41": { text: "Operationalized", deactivated: true }, // too similar to operationalize
   "wG": { text: "Operationally", deactivated: true }, // too similar to operationalize
-  "bG": { text: "Opportunity" },
+  "bG": { text: "Opportunity size" },
   "NB": { text: "Optimize" },
   "S3": { text: "Outcomes" },
   "4c": { text: "Ownership", deactivated: true }, // just a term
@@ -203,7 +203,7 @@ export const phrasesById = Object.freeze({
   "Wk": { text: "Proof of concept" },
   "Kl": { text: "Pull forward" },
   "EF": { text: "Pull-forward effect", deactivated: true }, // two existing terms combined
-  "qb": { text: "Pulse" },
+  "qb": { text: "Pulse check" },
   "za": { text: "Pushback" },
   "E6": { text: "Put on your radar", deactivated: true }, // too similar to on the radar
   "LO": { text: "Put out fires" },
@@ -222,16 +222,16 @@ export const phrasesById = Object.freeze({
   "BM": { text: "Resonate" },
   "ip": { text: "Resource allocation" },
   "M6": { text: "Revenue go-get", deactivated: true }, // weird
-  "bx": { text: "Revisit" },
+  "bx": { text: "Revisit", deactivated: true }, // not business specific
   "Hn": { text: "Revisit scope", deactivated: true }, // two existing terms combined
   "1V": { text: "Right-size", deactivated: true }, // boring
   "wV": { text: "Roadmap", deactivated: true }, // just a term
-  "KY": { text: "Rockstar" },
+  "KY": { text: "Rockstar", deactivated: true }, // cringe
   "Jd": { text: "ROI", deactivated: true }, // just a term
   "xd": { text: "Rollout" },
   "ib": { text: "Root cause" },
   "sn": { text: "Rough estimate", deactivated: true }, // not business specific
-  "Gb": { text: "Run of show" },
+  "Gb": { text: "Run of show", deactivated: true }, // not business specific
   "xJ": { text: "Runway" },
   "Nk": { text: "Sanity check", deactivated: true }, // offensive
   "hk": { text: "Scale" },
@@ -271,7 +271,7 @@ export const phrasesById = Object.freeze({
   "M2": { text: "Take this offline" },
   "DK": { text: "Target audience", deactivated: true }, // two existing terms combined
   "jR": { text: "Target metrics", deactivated: true }, // two existing terms combined
-  "Wv": { text: "Thought leader" },
+  "Wv": { text: "Thought leader", deactivated: true }, // retro
   "Fe": { text: "Thought partner" },
   "Wb": { text: "Three-year vision", deactivated: true }, // boring
   "vA": { text: "TL;DR", deactivated: true }, // boring
@@ -283,8 +283,8 @@ export const phrasesById = Object.freeze({
   "5A": { text: "Transformation", deactivated: true }, // company specific
   "Kk": { text: "Unlock" },
   "Xs": { text: "Unlock potential", deactivated: true }, // two existing terms combined
-  "CS": { text: "Unpack" },
-  "6e": { text: "Use case" },
+  "CS": { text: "Unpack", deactivated: true }, // not business specific
+  "6e": { text: "Use case", deactivated: true }, // just a term
   "hp": { text: "Value add" },
   "ze": { text: "Value prop" },
   "eQ": { text: "Value proposition", deactivated: true }, // just a term
