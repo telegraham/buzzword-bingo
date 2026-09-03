@@ -15,7 +15,7 @@ function shuffle(values) {
 
 function createDefaultBoard() {
   const board = shuffle(Object.keys(phrasesById)
-    .filter((id) => phrasesById[id].active)
+    .filter((id) => phrasesById[id].deactivated !== true)
   ).slice(0, CELL_COUNT);
   board[CENTER_CELL_INDEX] = FREE_SPACE_ID;
   return board;

@@ -4,6 +4,7 @@ export const phrasesById = Object.freeze({
   "2f": { text: "10x" },
   "mF": { text: "30,000-foot view" },
   "Wl": { text: "Above / below the line" },
+  "vo": { text: "Add color / color in" },
   "LQ": { text: "Accelerate", deactivated: true }, // metaphorically boring
   "Ut": { text: "Action items", deactivated: true }, // just a term
   "bV": { text: "Activation", deactivated: true }, // overly rare
@@ -156,7 +157,6 @@ export const phrasesById = Object.freeze({
   "pM": { text: "Metrics" },
   "oU": { text: "Milestones" },
   "Qd": { text: "Mitigate" },
-  "vo": { text: "More color / color in" },
   "Hd": { text: "Move forward", deactivated: true },
   "Ze": { text: "Move forward with rollout", deactivated: true }, // two existing terms combined
   "Mc": { text: "Move the goalposts" },
